@@ -1,0 +1,191 @@
+  <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register Form</title>
+    <style type="text/css">
+    @charset "ISO-8859-1";
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#section{
+    /* border: 1px solid red; */
+    height: 533px;
+    width: 940px;
+    margin: 4rem auto;
+    box-shadow: 0 0 12px #ccc;
+    
+}
+h1{
+    color:#DA3135;
+    font-size: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 200;
+    position: relative;
+    top: 10px;
+    left: 12rem;
+    width: 200px;
+}
+.inplabel{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #150e12;
+    font-size: 16px;
+    position: relative;
+    top: 22px;
+    left: 4rem;
+}
+.inplabel::after{
+    content: '*';
+    color: #DA3135;
+}
+.inp{
+    width: 340px;
+    border: none;
+    border-bottom:1px solid #818080;
+    background: none;
+    padding: 4px;
+    position: relative;
+    left: 4rem;
+    top: 20px;
+    outline: none;
+    font-size: inherit;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+#gender1{
+    position: relative;
+    top: 9px;
+}
+div{
+    margin-bottom: 20px;
+}
+#btn{
+    height: 40px;
+    width: 130px;
+    margin: 0.2rem 10rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 17px;
+    color: white;
+    background-color: #DA3135;
+    border: none;
+    border-radius: 8px;
+}
+#btn:hover{
+    background-color: tomato;
+    transform: scale(1.04);
+}
+#img{
+    position: absolute;
+    top: 64px;
+    left: 48.7rem;
+    height: 533px;
+    width: 460px;
+}
+#gen input{
+    width: 50px;
+}
+.gen{
+    position: relative;
+    top: 9px;
+    left: 4rem;
+}
+
+#male{
+    position: relative;
+    top: 9px;
+    left: 3rem;
+}
+#female{
+    position: relative;
+    top: 0.4rem;
+    left: 3rem;
+}
+#email{
+    position: relative;
+    top: 9px;
+}
+#password{
+    position: relative;
+    top: 9px;
+}
+#company{
+    position: relative;
+    top: 9px;
+}
+#designation{
+     position: relative;
+    top: 9px;
+}
+    </style>
+  </head>
+  <body>
+    <section>
+      <article id="section">
+        <form action="">
+          <h1>Signup</h1>
+          <div>
+            <label for="name" class="inplabel">Username</label><br />
+            <input type="text" name="name" id="name" class="inp" required placeholder="Enter name"/>
+          </div>
+          <div>
+            <label for="mobile" class="inplabel">Phone</label><br />
+            <input type="text" name="mobile" id="mobile" class="inp" required placeholder="Enter mobile number"/>
+          </div>
+          <div id="gen">
+            <label for="gender" class="inplabel" id="gender1" required >Gender</label>
+            <input
+              type="radio"
+              name="gender"
+              id="gender"
+              class="gen"
+              value="male" required
+            /><span id="male">Male</span>
+            <input
+              type="radio"
+              name="gender"
+              id="gender"
+              class="gen"
+              value="female" required
+            /><span id="female">Female</span>
+          </div>
+          <div>
+            <label for="email" class="inplabel" id="email">e-mail</label><br />
+            <input type="text" name="email" id="email" class="inp" required placeholder="Enter email"/>
+          </div>
+          <div>
+            <label for="password" class="inplabel" id="password">Password</label
+            ><br />
+            <input type="text" name="password" id="password" class="inp" required placeholder="Enter password"/>
+          </div>
+          <div>
+            <label for="company" class="inplabel" id="company" >Company</label
+            ><br />
+            <input type="text" name="company" id="company" class="inp" required placeholder="Enter company"/>
+          </div>
+          <div>
+            <label for="designation" class="inplabel" id="designation"
+              >Designation</label
+            ><br />
+            <input
+              type="text"
+              name="designation"
+              id="designation"
+              class="inp" required placeholder="Enter designation"
+            />
+          </div>
+
+          <div>
+            <input type="button" value="Submit" id="btn" onclick="validateForm()"/>
+          </div>
+          <div>
+            <img src="https://www.planotechevents.com/wp-content/uploads/2022/01/pl50.jpg" alt="" id="img">
+          </div>
+        </form>
+      </article>
+    </section>
+    <script src="./signupformvali.js"></script>
+  </body>
+</html>
