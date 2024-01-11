@@ -10,6 +10,6 @@ public class CommonController
 	public String loadHome()
 	{
 		
-		return "Signup";
+		return "Home";
 	}
 }

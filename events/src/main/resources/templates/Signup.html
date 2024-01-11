@@ -1,191 +1,157 @@
-  <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register Form</title>
-    <style type="text/css">
-    @charset "ISO-8859-1";
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-#section{
-    /* border: 1px solid red; */
-    height: 533px;
-    width: 940px;
-    margin: 4rem auto;
-    box-shadow: 0 0 12px #ccc;
-    
-}
-h1{
-    color:#DA3135;
-    font-size: 25px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-weight: 200;
-    position: relative;
-    top: 10px;
-    left: 12rem;
-    width: 200px;
-}
-.inplabel{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: #150e12;
-    font-size: 16px;
-    position: relative;
-    top: 22px;
-    left: 4rem;
-}
-.inplabel::after{
-    content: '*';
-    color: #DA3135;
-}
-.inp{
-    width: 340px;
-    border: none;
-    border-bottom:1px solid #818080;
-    background: none;
-    padding: 4px;
-    position: relative;
-    left: 4rem;
-    top: 20px;
-    outline: none;
-    font-size: inherit;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    <title>Document</title>
+    <script src="https://cdn.rawgit.com/eKoopmans/html2pdf/0.9.3/dist/html2pdf.bundle.js"></script>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+      }
 
-}
-#gender1{
-    position: relative;
-    top: 9px;
-}
-div{
-    margin-bottom: 20px;
-}
-#btn{
-    height: 40px;
-    width: 130px;
-    margin: 0.2rem 10rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 17px;
-    color: white;
-    background-color: #DA3135;
-    border: none;
-    border-radius: 8px;
-}
-#btn:hover{
-    background-color: tomato;
-    transform: scale(1.04);
-}
-#img{
-    position: absolute;
-    top: 64px;
-    left: 48.7rem;
-    height: 533px;
-    width: 460px;
-}
-#gen input{
-    width: 50px;
-}
-.gen{
-    position: relative;
-    top: 9px;
-    left: 4rem;
-}
+      form {
+        width: 400px;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
 
-#male{
-    position: relative;
-    top: 9px;
-    left: 3rem;
-}
-#female{
-    position: relative;
-    top: 0.4rem;
-    left: 3rem;
-}
-#email{
-    position: relative;
-    top: 9px;
-}
-#password{
-    position: relative;
-    top: 9px;
-}
-#company{
-    position: relative;
-    top: 9px;
-}
-#designation{
-     position: relative;
-    top: 9px;
-}
+      h2 {
+        text-align: center;
+        color: #333;
+      }
+
+      label {
+        display: block;
+        margin: 10px 0 5px;
+        color: #333;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      #validationMessage {
+        color: #ff0000;
+        margin-bottom: 10px;
+      }
+
+      #qrcode {
+        text-align: center;
+        margin-top: 20px;
+      }
     </style>
   </head>
   <body>
-    <section>
-      <article id="section">
-        <form action="">
-          <h1>Signup</h1>
-          <div>
-            <label for="name" class="inplabel">Username</label><br />
-            <input type="text" name="name" id="name" class="inp" required placeholder="Enter name"/>
-          </div>
-          <div>
-            <label for="mobile" class="inplabel">Phone</label><br />
-            <input type="text" name="mobile" id="mobile" class="inp" required placeholder="Enter mobile number"/>
-          </div>
-          <div id="gen">
-            <label for="gender" class="inplabel" id="gender1" required >Gender</label>
-            <input
-              type="radio"
-              name="gender"
-              id="gender"
-              class="gen"
-              value="male" required
-            /><span id="male">Male</span>
-            <input
-              type="radio"
-              name="gender"
-              id="gender"
-              class="gen"
-              value="female" required
-            /><span id="female">Female</span>
-          </div>
-          <div>
-            <label for="email" class="inplabel" id="email">e-mail</label><br />
-            <input type="text" name="email" id="email" class="inp" required placeholder="Enter email"/>
-          </div>
-          <div>
-            <label for="password" class="inplabel" id="password">Password</label
-            ><br />
-            <input type="text" name="password" id="password" class="inp" required placeholder="Enter password"/>
-          </div>
-          <div>
-            <label for="company" class="inplabel" id="company" >Company</label
-            ><br />
-            <input type="text" name="company" id="company" class="inp" required placeholder="Enter company"/>
-          </div>
-          <div>
-            <label for="designation" class="inplabel" id="designation"
-              >Designation</label
-            ><br />
-            <input
-              type="text"
-              name="designation"
-              id="designation"
-              class="inp" required placeholder="Enter designation"
-            />
-          </div>
+    <form action="" method="post">
+      <h2>Signup</h2>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
 
-          <div>
-            <input type="button" value="Submit" id="btn" onclick="validateForm()"/>
-          </div>
-          <div>
-            <img src="https://www.planotechevents.com/wp-content/uploads/2022/01/pl50.jpg" alt="" id="img">
-          </div>
-        </form>
-      </article>
-    </section>
-    <script src="./signupformvali.js"></script>
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="mobile" required />
+
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender" required>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+
+      <label for="company">Company:</label>
+      <input type="text" id="company" name="company" required />
+
+      <label for="designation">Designation:</label>
+      <input type="text" id="designation" name="designation" required />
+
+      <div id="validationMessage" class="error"></div>
+      <button type="button" onclick="validateAndGenerateQR()">submit</button>
+      <div id="qrcode"></div>
+    </form>
+
+    <script>
+      function validateAndGenerateQR() {
+        var name = document.getElementById("name").value;
+        var phone = document.getElementById("phone").value;
+        var gender = document.getElementById("gender").value;
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        var company = document.getElementById("company").value;
+        var designation = document.getElementById("designation").value;
+
+        if (
+          !name ||
+          !email ||
+          !phone ||
+          !gender ||
+          !password ||
+          !company ||
+          !designation
+        ) {
+          document.getElementById("validationMessage").innerText =
+            "All fields are required.";
+          return;
+        }
+        document.getElementById("validationMessage").innerText = "";
+        var maskedPassword = '*'.repeat(password.length);
+        var userData = `Name: ${name}\nPhone: ${phone}\nGender: ${gender}\nEmail: ${email}\npassword:${maskedPassword}\nCompany: ${company}\nDesignation: ${designation}`;
+
+        document.getElementById("qrcode").innerHTML = "";
+
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+          text: userData,
+          width: 128,
+          height: 128,
+        });
+        saveAsPDF();
+      }
+      function saveAsPDF() {
+        var element = document.getElementById("qrcode");
+        html2pdf(element, {
+          margin: 10,
+          filename: "qrcode.pdf",
+          image: { type: "jpeg", quality: 0.98 },
+          html2canvas: { scale: 2 },
+          jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+        });
+      }
+    </script>
   </body>
 </html>
