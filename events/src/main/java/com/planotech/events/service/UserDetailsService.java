@@ -15,9 +15,12 @@ public class UserDetailsService
 	@Autowired
 	UserDetailsDao detailsDao;
 	
+	@Autowired
+	UserDetails userDetails;
+	
 	public String signup(UserDetails userDetails,ModelMap map)
 	{
-		List<UserDetails> exuser = detailsDao.findByEmailAndMobile(userDetails.getEmail(), userDetails.getMobile());
+		List<UserDetails> exuser = detailsDao.findByEmailOrMobile(userDetails.getEmail(),userDetails.getMobile());
 		System.out.println(exuser);
 		if(!exuser.isEmpty())
 		{

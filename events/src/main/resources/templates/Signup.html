@@ -1,157 +1,116 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="https://cdn.rawgit.com/eKoopmans/html2pdf/0.9.3/dist/html2pdf.bundle.js"></script>
-    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
     <style>
-      body {
-        font-family: "Arial", sans-serif;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background-color: #f4f4f4;
-      }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
 
-      form {
-        width: 400px;
-        padding: 20px;
-        background-color: #fff;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-      }
+        form {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
 
-      h2 {
-        text-align: center;
-        color: #333;
-      }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
 
-      label {
-        display: block;
-        margin: 10px 0 5px;
-        color: #333;
-      }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #555;
+        }
 
-      input,
-      select {
-        width: 100%;
-        padding: 8px;
-        margin-bottom: 15px;
-        box-sizing: border-box;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-      }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
 
-      button {
-        width: 100%;
-        padding: 10px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-      }
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
 
-      button:hover {
-        background-color: #0056b3;
-      }
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
 
-      #validationMessage {
-        color: #ff0000;
-        margin-bottom: 10px;
-      }
-
-      #qrcode {
-        text-align: center;
-        margin-top: 20px;
-      }
+        button:hover {
+            background-color: #45a049;
+        }
+         .fail{
+    	color:red;
+    	margin-top: 0px;
+    	position: absolute;
+    	top: 0px;
+    	left:660px;
+    	justify-content: center;
+    	align-items: center;
+    }
     </style>
-  </head>
-  <body>
-    <form action="" method="post">
-      <h2>Signup</h2>
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required />
+</head>
+<body>
+<center>
+<h3 class="fail" th:text="${fail}"></h3>
+</center>
 
-      <label for="phone">Phone:</label>
-      <input type="tel" id="phone" name="mobile" required />
+<form action="/user/signup" method="post">
+    <h2>Signup</h2>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
 
-      <label for="gender">Gender:</label>
-      <select id="gender" name="gender" required>
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" name="mobile" required>
+
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender" required>
         <option value="male">Male</option>
         <option value="female">Female</option>
         <option value="other">Other</option>
-      </select>
+    </select>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required />
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
 
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required />
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
 
-      <label for="company">Company:</label>
-      <input type="text" id="company" name="company" required />
+    <label for="company">Company:</label>
+    <input type="text" id="company" name="company" required>
 
-      <label for="designation">Designation:</label>
-      <input type="text" id="designation" name="designation" required />
+    <label for="designation">Designation:</label>
+    <input type="text" id="designation" name="designation" required>
 
-      <div id="validationMessage" class="error"></div>
-      <button type="button" onclick="validateAndGenerateQR()">submit</button>
-      <div id="qrcode"></div>
-    </form>
+    <button type="submit">Sign Up</button>
+</form>
 
-    <script>
-      function validateAndGenerateQR() {
-        var name = document.getElementById("name").value;
-        var phone = document.getElementById("phone").value;
-        var gender = document.getElementById("gender").value;
-        var email = document.getElementById("email").value;
-        var password = document.getElementById("password").value;
-        var company = document.getElementById("company").value;
-        var designation = document.getElementById("designation").value;
-
-        if (
-          !name ||
-          !email ||
-          !phone ||
-          !gender ||
-          !password ||
-          !company ||
-          !designation
-        ) {
-          document.getElementById("validationMessage").innerText =
-            "All fields are required.";
-          return;
-        }
-        document.getElementById("validationMessage").innerText = "";
-        var maskedPassword = '*'.repeat(password.length);
-        var userData = `Name: ${name}\nPhone: ${phone}\nGender: ${gender}\nEmail: ${email}\npassword:${maskedPassword}\nCompany: ${company}\nDesignation: ${designation}`;
-
-        document.getElementById("qrcode").innerHTML = "";
-
-        var qrcode = new QRCode(document.getElementById("qrcode"), {
-          text: userData,
-          width: 128,
-          height: 128,
-        });
-        saveAsPDF();
-      }
-      function saveAsPDF() {
-        var element = document.getElementById("qrcode");
-        html2pdf(element, {
-          margin: 10,
-          filename: "qrcode.pdf",
-          image: { type: "jpeg", quality: 0.98 },
-          html2canvas: { scale: 2 },
-          jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
-        });
-      }
-    </script>
-  </body>
+</body>
 </html>

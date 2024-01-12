@@ -1,84 +1,203 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta charset="ISO-8859-1">
-<title>Home Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planotech Events & Marketing Pvt Ltd</title>
+    <style>
+        body {
+               font-family: 'Helvetica', Arial, sans-serif;
+               margin: 0;
+               padding: 0;
+               background-color: #f4f4f4;
+               color: #333;
+           }
+   
+           header {
+               background-color: #ecf0f1; /* Lightened color */
+               color: #2c3e50;
+               padding: 20px;
+               display: flex;
+               justify-content: space-between;
+               align-items: center;
+           }
+   
+           .logo img {
+               width: 300px;
+               height: 80px;
+           }
+   
+          nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-    header {
-      background-color: #007bff;
-      color: #fff;
-      text-align: center;
-      padding: 20px 0;
-    }
-    .container {
-      width: 80%;
-      margin: auto;
-      overflow: hidden;
-      text-align: center;
-      padding-top: 50px;
-    }
-    .cta-buttons {
-      margin-top: 50px;
-    }
-    .cta-buttons a {
-      display: inline-block;
-      padding: 15px 30px;
-      margin: 10px;
-      text-decoration: none;
-      color: #fff;
-      background-color: #007bff;
-      border-radius: 5px;
-      font-size: 1.2em;
-      transition: background-color 0.3s ease;
-    }
-    .cta-buttons a:hover {
-      background-color: #0056b3;
-    }
-    .about-section {
-      margin-top: 50px;
-      text-align: center;
-    }
-    .about-section h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
-    }
-    .about-section p {
-      font-size: 1.2em;
-      line-height: 1.6;
-    }     
-  </style>
+a {
+    text-decoration: none;
+}
 
-</head>
-<body>
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
 
-<center>
-	 <h2 class="pass" th:text="${pass}"></h2>
-	<h2 class="fail" th:text="${fail}"></h2>
- </center>
-  
-  <header>
-    <h1>Welcome to Our E-commerce Application</h1>
-  </header>
-  <div class="container">
-    <div class="cta-buttons">
-      <a href="/user/signup">Sign Up</a>
-      <a href="/login.html">Login</a>
-    </div>
-    <div class="about-section">
-      <h2>About Our Application</h2>
-      <p>Welcome to our E-commerce Application! We strive to offer you an exceptional online shopping experience. Browse through our vast collection of products, from electronics to fashion, and enjoy secure and convenient transactions. Our platform is designed with your satisfaction in mind. Join us and discover the ease of online shopping!</p>
-    </div>
-  </div>
-  
+button:hover {
+    background-color: #45a049;
+}
+
+.spacer {
+    flex-grow: 1;
+}
+
+   
+           section {
+               margin: 20px;
+               padding: 20px;
+               background-color: #fff;
+               border-radius: 8px;
+               box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+           }
+   
+           h1 {
+               color: #2c3e50;
+               font-size: 2em;
+           }
+   
+           h2 {
+               color: #3498db;
+           }
+   
+           footer {
+               background-color: #ecf0f1; /* Lightened color */
+               color: #2c3e50;
+               text-align: center;
+               padding: 10px;
+           }
+   
+           img {
+       width: 60%; /* Set the width to 60% */
+       height: auto; /* Maintain aspect ratio while adjusting width */
+       display: block; /* Remove default inline behavior */
+       margin: 10px auto; /* Center the images horizontally with some top and bottom margin */
+   }
+   p {
+       font-size: 1.2em; /* Increase font size for paragraphs */
+       color: #3f454a;
+   }
+   #abc{
+       width: 75px; /* Set the width to 60% */
+       height: auto; 
+       display: block; /* Remove default inline behavior */
+       margin: 1px auto; 
+   }
+   #d{
+    width: 60%; /* Set the width to 60% */
+    height: auto; /* Maintain aspect ratio while adjusting width */
+    display: block; /* Remove default inline behavior */
+    margin: 10px auto;
+   }
+   #icon a {
+            color: #2c3e50; /* Set the color for the social media icons */
+            text-decoration: none;
+            margin-right: 10px; /* Adjust spacing between icons */
+        }
+
+        #icon a:hover {
+            color: #3498db; /* Change color on hover */
+        } 
    
 
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+	<header>
+        <div class="logo">
+            <img src="https://www.planotechgroupofcompanies.com/wp-content/uploads/2023/11/Picture1-removebg-preview.png" alt="Logo">
+        </div>
+    <nav>
+        <a href="/"><button>Home</button></a>
+        <a href="/about-us"><button>About Us</button></a>
+        <a href="/user/signup"><button>Signup</button></a>
+        <a href="/login"><button>Login</button></a>
+    </nav>
+	 </header>
+    <section>
+        <h1>Planotech Events & Marketing Pvt Ltd</h1>
+    </section>
+
+    <section>
+        <h2>Overview</h2>
+        <p>At Planotech Events & Marketing Pvt Ltd, we provide you with the strongest possible platform to encourage your company's growth. Whether it’s a product launch, conference, holiday party, or a unique and custom experience, our team has the expertise to bring your vision to life. We work with you from the initial concept, planning, and design, through to onsite management and production. We understand the investment of corporate events; we are thoughtful and considerate of each brand and work to ensure we always achieve your goals and create the greatest possible impact on your audience.</p>
+    </section>
+
+    <section>
+        <h2>Contact Information</h2>
+        <ul>
+            <li><strong>Website:</strong> <a href="http://www.planotechevents.com/" target="_blank">www.planotechevents.com</a></li>
+            <li><strong>Phone:</strong> 9108933888</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Company Information</h2>
+        <ul>
+            <li><strong>Industry:</strong> Events Services</li>
+            <li><strong>Company Size:</strong> 11-50 employees</li>
+            <li><strong>Headquarters:</strong> Bangalore, Karnataka</li>
+            <li><strong>Founded:</strong> 2017</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Specialties</h2>
+        <p>Events, Exhibitions, Conference, Events Productions, and Stall Designing & Execution</p>
+    </section>
+    
+     <footer>
+        <div id="icon">
+            
+            <h5>Follow-us</h5>
+            <a href="https://www.facebook.com/planotechevents" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com/planotechevents11/?hl=en" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/darshan-kumar-k/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://twitter.com/PlanotechEvents" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+        <p class="p11">© Copyright 2022 Planotech Group</p>
+        <p class="p1">Contact Information:</p>
+        <p class="p2">
+            <i class="fa-regular fa-envelope"></i>
+            planotech@gmail.com |
+            <i class="fa-solid fa-phone"></i>
+            +91 9876543210
+        </p>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/22e204274b.js" crossorigin="anonymous"></script>
 </body>
+
 </html>

@@ -15,9 +15,9 @@ public class UserDetailsDao
 	UserDetailsRepository detailsRepository;
 	
 	
-	public List<UserDetails> findByEmailAndMobile(String email,long mobile)
+	public List<UserDetails> findByEmailOrMobile(String email,long mobile)
 	{
-		return detailsRepository.findByEmailAndMobile(email,mobile);
+		return detailsRepository.findByEmailOrMobile(email,mobile);
 	}
 	
 	public void save(UserDetails userDetails)

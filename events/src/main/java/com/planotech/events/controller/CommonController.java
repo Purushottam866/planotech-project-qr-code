@@ -12,4 +12,11 @@ public class CommonController
 		
 		return "Home";
 	}
+	
+	@GetMapping("login")
+	public String loadLogin()
+	{
+		
+		return "Login";
+	}
 }

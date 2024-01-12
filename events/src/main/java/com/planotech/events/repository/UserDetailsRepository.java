@@ -9,6 +9,6 @@ import com.planotech.events.dto.UserDetails;
 public interface UserDetailsRepository extends JpaRepository<UserDetails, Integer>
 {
 
-	List<UserDetails> findByEmailAndMobile(String email, long mobile);
+	List<UserDetails> findByEmailOrMobile(String email, long mobile);
 	
 }
