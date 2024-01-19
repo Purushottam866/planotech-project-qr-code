@@ -1,116 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	 <title>SignupPage</title>
+	<style>
+		.error {
+			color: red;
+			font-size: 12px;
+			text-align: left;
+		}
 
-        form {
-            background-color: #fff;
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-        }
+		body {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
 
-        h2 {
-            text-align: center;
-            color: #333;
-        }
+		div {
+			text-align: center;
+			margin-bottom: 20px;
+		}
 
-        label {
-            display: block;
-            margin: 10px 0 5px;
-            color: #555;
-        }
+		#logo {
+			margin: 30px 630px;
+			width: 250px;
+			height: 70px;
+			margin: 10px auto;
+			display: block;
+			max-width: 100%;
+		}
 
-        input {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
+		form {
+			max-width: 400px;
+			max-height: 800px;
+			margin: 0px auto;
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 8px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+		}
 
-        select {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
+		h2 {
+			text-align: center;
+			color: #333;
+		}
 
-        button {
-            background-color: #4caf50;
+		label {
+			display: block;
+			font-weight: bold;
+			color: #b8b5b5;
+		}
+
+		label::after {
+			content: " *";
+			color: red;
+		}
+
+		input,
+		select {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 16px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+		}
+
+		 button {
+            background-color: #e74c3c;
             color: #fff;
             padding: 10px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            width: 100%;
+            font-size: 14px;
+            width: 48%; /* Adjusted width to make buttons occupy half of the container */
+            margin-right: 4%; /* Added margin for spacing between buttons */
         }
 
-        button:hover {
-            background-color: #45a049;
+        .back {
+            position: relative;
+            top: -37px;
+            left: 200px;
+            background-color: olive;
+            width: 48%; /* Adjusted width to make buttons occupy half of the container */
         }
-         .fail{
-    	color:red;
-    	margin-top: 0px;
-    	position: absolute;
-    	top: 0px;
-    	left:660px;
-    	justify-content: center;
-    	align-items: center;
-    }
+
+		/* button:hover {
+			background-color: tomato;
+		} */
+
+		/* #qrcode {
+        margin: 10px 120px;
+        text-align: center;
+        border-radius: 8px;
+        padding: 10px;
+      } */
+		@media screen and (max-width: 600px) {
+			form {
+				margin: 10px;
+				padding: 15px;
+			}
+		}
+		.fail{
+			font-size: large;
+			color:red;
+			font-weight: 20px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}  
+       .error{
+      color:red;
+      
+      }
+      #validationMessage{
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  font-size: medium;
+	  }
     </style>
-</head>
-<body>
-<center>
-<h3 class="fail" th:text="${fail}"></h3>
-</center>
+  </head>
+  <body>
+    <div>
+        <img
+          src="https://www.planotechgroupofcompanies.com/wp-content/uploads/2023/11/Picture1-removebg-preview.png"
+          alt="Logo"
+          id="logo"
+        />
+      </div>
+      
+      <center>
+        <h3 id="failMessage" class="fail" th:text="${fail}"></h3>
+      </center>
+       
+    <form action="/user/signup" th:object="${userDetails}" method="post" >
+		<div id="validationMessage" class="error"></div>
+      <h2>Signup</h2>
+      
+      <label for="name">Name:</label>
+      <input type="text" id="name" required th:field="*{name}" name="name"  />
+      <span class="error"  th:errors="*{name}"></span>
+      <div id="nameError" class="error"></div>
 
-<form action="/user/signup" method="post">
-    <h2>Signup</h2>
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="mobile" required th:field="*{mobile}"  >
+      <span class="error" th:errors="*{mobile}"></span>
+      <div id="phoneError" class="error"></div>
 
-    <label for="phone">Phone:</label>
-    <input type="tel" id="phone" name="mobile" required>
-
-    <label for="gender">Gender:</label>
-    <select id="gender" name="gender" required>
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender" required th:field="*{gender}" >
+        <option value="" disabled selected>---</option>
         <option value="male">Male</option>
         <option value="female">Female</option>
-        <option value="other">Other</option>
-    </select>
+      </select>
+      <span class="error" th:errors="*{gender}"></span>
+      <div id="genderError" class="error"></div>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required th:field="*{email}" >
+      <span class="error" th:errors="*{email}"></span>
+      <div id="emailError" class="error"></div>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required th:field="*{password}"  >
+      <span class="error" th:errors="*{password}"></span>
+      <div id="passwordError" class="error"></div>
 
-    <label for="company">Company:</label>
-    <input type="text" id="company" name="company" required>
+      <label for="company">Company:</label>
+      <input type="text" id="company" name="company" required th:field="*{company}" >
+      <span class="error" th:errors="*{company}"></span>
+      <div id="companyError" class="error"></div>
 
-    <label for="designation">Designation:</label>
-    <input type="text" id="designation" name="designation" required>
+      <label for="designation">Designation:</label>
+      <input type="text" id="designation" name="designation" required th:field="*{designation}" >
+      <span class="error"  th:errors="*{designation}"></span>
+      <div id="designationError" class="error"></div>
 
-    <button type="submit">Sign Up</button>
-</form>
+      <button type="submit" onclick="validateForm()">Submit</button>
+      <a href="/"><button class="back" type="button" onclick="validateForm()">Back</button></a> 
+    </form>
 
+	<script>
+		function validateForm() {
+			var name = document.getElementById("name").value;
+			var phone = document.getElementById("phone").value;
+			var gender = document.getElementById("gender").value;
+			var email = document.getElementById("email").value;
+			var password = document.getElementById("password").value;
+			var company = document.getElementById("company").value;
+			var designation = document.getElementById("designation").value;
+
+			var nameError = document.getElementById("nameError");
+			var phoneError = document.getElementById("phoneError");
+			var genderError = document.getElementById("genderError");
+			var emailError = document.getElementById("emailError");
+			var passwordError = document.getElementById("passwordError");
+			var companyError = document.getElementById("companyError");
+			var designationError = document.getElementById("designationError");
+
+			nameError.textContent = "";
+			phoneError.textContent = "";
+			genderError.textContent = "";
+			emailError.textContent = "";
+			passwordError.textContent = "";
+			companyError.textContent = "";
+			designationError.textContent = "";
+
+
+			 if (
+          !name ||
+          !phone ||
+          gender === "" ||
+          !email ||
+          !password ||
+          !company ||
+          !designation
+        ) {
+          validationMessage.textContent =
+            "*All fields are required.";
+          return false;
+        }
+        
+			if (name.length < 3) {
+				nameError.textContent = "*Name should be greater than 3 letters";
+				return false;
+			}
+			if (!/^\d{10}$/.test(phone)) {
+				phoneError.textContent = "*Phone number should be 10 digits";
+				return false;
+			}
+			if (gender === "") {
+				genderError.textContent = "*Please select a gender";
+				return false;
+			}
+			if (!email.includes("@")) {
+				emailError.textContent = "*Email should contain @";
+				return false;
+			}
+			if (
+				!/(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#\$%\^&\*()-_\+=<>?/\{}\[\]\\\|])\S{8,}/.test(
+					password
+				)
+			) {
+				passwordError.textContent =
+					"*Password should contain at least one uppercase, one lowercase, one digit, one special character, and no whitespace. Minimum length is 8 characters.";
+				return false;
+			}
+			if (company === "") {
+				companyError.textContent = "company name is required";
+				return false;
+			}
+			if (designation === "") {
+				designationError.textContent = "designation is required";
+				return false;
+			}
+			return true;
+		}
+		
+		
+	</script>
 </body>
+
 </html>

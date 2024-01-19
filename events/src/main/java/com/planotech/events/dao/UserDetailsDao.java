@@ -13,15 +13,20 @@ public class UserDetailsDao
 {
 	@Autowired
 	UserDetailsRepository detailsRepository;
-	
-	
-	public List<UserDetails> findByEmailOrMobile(String email,long mobile)
-	{
-		return detailsRepository.findByEmailOrMobile(email,mobile);
+
+	public List<UserDetails> findByEmailOrMobile(String email, long mobile) {
+		return detailsRepository.findByEmailOrMobile(email, mobile);
 	}
-	
-	public void save(UserDetails userDetails)
-	{
+
+	public void save(UserDetails userDetails) {
 		detailsRepository.save(userDetails);
+	}
+
+	public List<UserDetails> fetchAll() {
+		return detailsRepository.findAll();
+	}
+
+	public UserDetails fetchById(int id) {
+		return detailsRepository.findById(id).orElse(null);
 	}
 }

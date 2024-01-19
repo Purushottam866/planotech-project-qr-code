@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Confirmation</title>
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+			/* background-color: #f5a89c; */
+			overflow: hidden;
+			font-size: 16px;
+		}
+
+		strong {
+			color: #5c6886;
+			font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+			font-weight: 300;
+		}
+
+		#page {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			/* min-height: 100vh; */
+		}
+
+		#content {
+			/* width: 70%; */
+			margin: 0px 5%;
+			background-color: #fff;
+			/* box-shadow: 10px 10px 10px #f5a89c; */
+			border-radius: 10px;
+			padding: 10px;
+		}
+
+		#logo {
+			height: 120px;
+			width: 350px;
+			/* margin: 10px 300px; */
+		}
+
+		h2 {
+			font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+			color: #b61d20;
+			font-size: 25px;
+		}
+
+		h1 {
+			font-size: 25px;
+		}
+
+		#qrcode {
+			height: 100px;
+			width: 100px;
+		}
+
+		@media only screen and (max-width: 768px) {
+			#content {
+				width: 90%;
+				margin: 0px 5%;
+			}
+
+			#logo {
+				width: 80%;
+			}
+
+			h1 {
+				font-size: 20px;
+			}
+		}
+
+		@media only screen and (max-width: 480px) {
+			#content {
+				width: 95%;
+				margin: 0px 2.5%;
+			}
+
+			#logo {
+				width: 100%;
+			}
+
+			h1 {
+				font-size: 18px;
+			}
+		}
+
+		.name {
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: row;
+		}
+		.regards{
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: column;
+			padding: 10px 10px 10px 0px;
+		}
+	</style>
+</head>
+
+<body>
+
+
+
+	<div id="curve"></div>
+	<div id="page">
+		<div id="content">
+			<img src="https://www.planotechgroupofcompanies.com/wp-content/uploads/2023/11/Picture1-removebg-preview.png"
+				alt="Logo" id="logo" />
+			<div class="name">
+				<h1>Hello </h1><span> </span>
+				<h1 th:text="${user.name}" style="padding: 0px 0px 0px 10px;"></h1>
+			</div>
+			<h2>Welcome to Planotech Group of Companies</h2>
+			<ul type="none">
+				<li>
+					<strong>Planotech Events and Marketing (OPC) Pvt Ltd:</strong>Crafting
+					unforgettable events with precision and creativity.
+				</li>
+				<li>
+					<strong>Extent Digital Marketing & Communications: </strong>Pioneering
+					digital strategies to elevate your brand in the digital realm
+				</li>
+				<li>
+					<strong>D Viswa Karunasagara Dharma Foundation:</strong>Dedicated to
+					enriching lives and nurturing sustainable communities
+				</li>
+				<li>
+					<strong>Planotech Media House:</strong>Producing captivating content
+					that resonates and inspires.
+				</li>
+			</ul>
+			<p id="p1">
+				We extend our sincerest gratitude to you for taking the time to generate
+				the QR Code. It is with great pleasure that we confirm your attendance.
+			</p>
+			<p id="p2">
+				You may like to keep this mail safe, so you can take a printout or on
+				mobile the badge anytime,Your Reference QRCode is in attachments.
+			</p>
+			<img th:src="'data:image/png;base64,' +${base64Image}" alt="QR Code" style="height: 100px; width: 100px;">
+			<div class="regards">
+			<div>Best Regards</div>
+			<div>Team Planotech</div>
+			</div>
+		</div>
+		
+		  <a href="/" style="text-decoration: none; color: #fff; position: fixed; bottom: 140px; width: 100%; text-align: center;">
+            <button style="padding: 15px 30px; background-color: #b61d20; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 18px; font-weight: bold;">
+                Back to Home <span style="font-size: 24px;">&#8592;</span> <!-- Unicode character for left arrow -->
+            </button>
+        </a>
+		
+	</div>
+</body>
+
+</html>

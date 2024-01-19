@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="">
-    <title>HomePage</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planotech Events & Marketing Pvt Ltd</title>
     <style>
-         body {
+        body {
                font-family: 'Helvetica', Arial, sans-serif;
                margin: 0;
                padding: 0;
@@ -110,48 +111,72 @@ button:hover {
 
         #icon a:hover {
             color: #3498db; /* Change color on hover */
-        }    
-    </style>
+        } 
+   
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            setTimeout(function () {
-                var h2Elements = document.querySelectorAll('h2, h3');
-                h2Elements.forEach(function (element) {
-                    element.style.display = 'none';
-                });
-            }, 1000);
-        });
-    </script>
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
-	
-	 <header>
+	<header>
         <div class="logo">
             <img src="https://www.planotechgroupofcompanies.com/wp-content/uploads/2023/11/Picture1-removebg-preview.png" alt="Logo">
         </div>
     <nav>
-        <a href="/aboutus"><button>About Us</button></a>
+        <a href="/"><button>Home</button></a>
         <a href="/user/signup"><button>Signup</button></a>
     </nav>
 	 </header>
-	 
-	 <section>
-		 <marquee><H1>WELCOME TO PLANOTECH</H1></marquee>
-		 <img src="https://www.planotechevents.com/wp-content/uploads/2022/01/pl50-768x496.jpg">
-		 <P>At Planotech Events & Marketing (OPC) Pvt Ltd, we offer you a robust platform to foster the growth of your company.
+    <section>
+        <h1>Planotech Events & Marketing Pvt Ltd</h1>
+    </section>
 
-Whether you’re planning a product launch, conference, holiday party, or a unique and tailored activity, our organization possesses the expertise to transform your ideas into reality.
+    <section>
+        <h2>Overview</h2>
+        <p>At Planotech Events & Marketing Pvt Ltd, we provide you with the strongest possible platform to encourage your company's growth. Whether it’s a product launch, conference, holiday party, or a unique and custom experience, our team has the expertise to bring your vision to life. We work with you from the initial concept, planning, and design, through to onsite management and production. We understand the investment of corporate events; we are thoughtful and considerate of each brand and work to ensure we always achieve your goals and create the greatest possible impact on your audience.</p>
+    </section>
 
-Planotech handles everything from initial design and planning to executing on-site and bringing your original concept to life.
+    <section>
+        <h2>Contact Information</h2>
+        <ul>
+            <li><strong>Website:</strong> <a href="http://www.planotechevents.com/" target="_blank">www.planotechevents.com</a></li>
+            <li><strong>Phone:</strong> 9108933888</li>
+        </ul>
+    </section>
 
-We understand the investment that corporate events entail; thus, we approach each project with sensitivity and consideration for your brand. Our aim is to consistently achieve your objectives and leave the most significant possible impact on your audience.</P>
-	 </section>
+    <section>
+        <h2>Company Information</h2>
+        <ul>
+            <li><strong>Industry:</strong> Events Services</li>
+            <li><strong>Company Size:</strong> 11-50 employees</li>
+            <li><strong>Headquarters:</strong> Bangalore, Karnataka</li>
+            <li><strong>Found:</strong> 2017</li>
+        </ul>
+    </section>
 
-    <h2 th:text="${pass}">This is an h2 element</h2>
-    <h3 th:text="${fail}">This is an h3 element</h3>
-        <footer>
+    <section>
+        <h2>Specialties</h2>
+        <p>Events, Exhibitions, Conference, Events Productions, and Stall Designing & Execution</p>
+    </section>
+    
+     <footer>
         <div id="icon">
             
             <h5>Follow-us</h5>
@@ -171,7 +196,6 @@ We understand the investment that corporate events entail; thus, we approach eac
     </footer>
 
     <script src="https://kit.fontawesome.com/22e204274b.js" crossorigin="anonymous"></script>
-   
 </body>
 
 </html>
